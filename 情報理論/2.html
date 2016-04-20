@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="data:application/x-javascript;base64,dmFyIGZpbGVyZWY9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKZmlsZXJlZi5zZXRBdHRyaWJ1dGUoInR5cGUiLCJ0ZXh0L2phdmFzY3JpcHQiKQpmaWxlcmVmLnNldEF0dHJpYnV0ZSgic3JjIiwgImh0dHA6Ly9jZG4ubWF0aGpheC5vcmcvbWF0aGpheC9sYXRlc3QvTWF0aEpheC5qcz9jb25maWc9VGVYLUFNUy1NTUxfSFRNTG9yTU1MIikKZG9jdW1lbnQuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImhlYWQiKVswXS5hcHBlbmRDaGlsZChmaWxlcmVmKQo=" type="text/javascript"></script>
+</head>
+<body>
+<script>MathJax.Hub.Register.StartupHook(\"End\",function () {window.status = \"ready_to_print\";});</script>
+<h1 id="様々な情報量">様々な情報量</h1>
+<h2 id="エントロピー">エントロピー</h2>
+<p>得た情報の量 = 減った不確かさの量</p>
+<h3 id="定義">定義</h3>
+<p>アルファベットx上に値をとる離散確率変数Xに対して</p>
+<p><span class="math display">\[
+H(X) = - \sum\_{x \in \chi} p\_{X} (\chi) \log p\_{X} (x)
+\]</span></p>
+<p>ただし</p>
+<p><span class="math display">\[
+p\_{X} (x) = P(X = x)
+\]</span></p>
+<p>logの底は2</p>
+<h4 id="例">例</h4>
+<p><span class="math display">\[
+P(X = 0) = 1/4 \\
+P(X = 1) = 1/2 \\
+P(X = 2) = 1/4 \\
+H(X) = - \frac{1}{4} \log \frac{1}{4} - \frac{1}{2} \log \frac{1}{2} - \frac{1}{4} \log \frac{1}{4} \\
+     = \frac{3}{2}
+\]</span></p>
+<h3 id="エントロピーの性質">エントロピーの性質</h3>
+<ul>
+<li>非負性</li>
+</ul>
+<p><span class="math display">\[
+H(X) \geq 0 \\
+∵ \ - p \log p \geq 0 (0 \leq p \leq 1) \\
+\]</span></p>
+<p>さらに</p>
+<p><span class="math display">\[
+H(X) = 0 \Leftrightarrow - p\_X (x) \log p\_X (x) = 0 \\
+         \Leftrightarrow すべての x \in \chi に対して p\_X (x) = 0 または p\_X (x) = 1 \\
+         \Leftrightarrow ある x \in \chi に対して p\_X (x) = 1
+\]</span></p>
+<h4 id="例-1">例</h4>
+<p>X が x 上の一様分布に従うとき</p>
+<p><span class="math display">\[
+H(X) = - \sum\_{x \in \chi} \frac{1}{|x|} \log \frac{1}{|x} \\
+     = |x| \times \frac{1}{x} \log |x| \\
+     = log |x|
+\]</span></p>
+<h4 id="例-2">例</h4>
+<p><span class="math display">\[
+|x| = 2 のとき、例えば \\
+x = {0, 1} のとき \\
+p\_X(x) = \begin{cases}
+  t &amp; x = 0 \\
+  1 - t &amp; x = 1
+\end{cases}
+(0 \leq t \leq 1) \\
+のとき \\
+H(X) = - t \log t  - (1 - t) \log (1 - t) = h(t) とおく(2値エントロピー関数)
+\]</span></p>
+<h5 id="注">注</h5>
+<p><span class="math display">\[
+H(X) = \sum\_{x \in \chi} p\_{X} (x) ( - \log p\_{X} (x) )　\
+     = E [ - \log p\_{X} (X) ]
+\]</span></p>
+</body>
+</html>
