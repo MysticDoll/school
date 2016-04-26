@@ -1,0 +1,206 @@
+<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css"><style>h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+    text-decoration: none;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+    background-color: #f5f4ea;
+}
+code {
+    background-color: #f5f4ea;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #f5f4ea;
+    color:#454545;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style></head><body><h1 id="-3-1">定理3.1</h1>
+<p>有限アルファベット$\cal{x}$上に値をとる離散確率変数$X$に対して</p>
+<p>$$
+0 \leq H(X) \leq \log |\cal{x}|
+$$</p>
+<p>$$</p>
+<p>∵ ある a \in x に対して \\
+P_x (a) = 1</p>
+<p>P_x(x) = \frac{1}{|\cal{x}|}</p>
+<p>$$</p>
+<h2 id="-">復習</h2>
+<p>$\bf{p} = (p_1, p_2, \dots , p_m) \in \Delta_{m}$に対して<br>$H(\bf{p}) = - \sum_{i = 1}^{m} p_i \log p_i$ と表すことにする<br>ただし、
+$$
+\Delta_{m} = \{ (x_1, \dots , x_m ) \in \bf{R}^{m} | x_1 , \dots , x_m \geq 0, \sum_{i = 1}^{m} x_i = 1 \}
+$$</p>
+<h3 id="-">注意</h3>
+<p>$$
+\Delta_{m} は \bf{R} の 凸部分集合 \Leftrightarrow \\
+\bf{x}, \bf{y} \in \Delta_{m}, 0 \leq \lambda \leq 1 \Rightarrow \lambda \bf{x} + (1 - \lambda) \bf{y}
+\in \Delta_{m}
+$$</p>
+<h1 id="-3-2">定理3.2</h1>
+<p>$H(\bf{p})$は $\Delta_{m}$ 上で 上に凸である すなわち
+$$
+\bf{p}, \bf{q} \in \Delta_{m}, 0 \leq \lambda \leq 1 \Rightarrow 
+H(\lambda \bf{p} + (1 - \lambda)\bf{q}) \leq \lambda H(\bf{p}) + (1 - \lambda)H(\bf{q}) \tag{*}
+$$</p>
+<h2 id="-">復習</h2>
+<h3 id="1-">1変数関数の凸性について</h3>
+<p>区間I上で2回微分可能な関数 $f(x)$ について<br>$f(x)$ が上に凸 $\Leftrightarrow f^{&#39;&#39;}(x) \leq 0 (x \in I)$</p>
+<h3 id="-">多変数関数の凸性について</h3>
+<p>凸集合I $\subseteq \bf{R}^{n}$ 上で2回微分可能な関数 $f(x_1, \dots , x_n)$ について<br>$f(x_1, \dots , x_n)$ が 上に凸 $\Leftrightarrow $
+$$
+H = (\frac{\delta^{2} f}{\delta x_i \delta x_j}) = () \\
+$$
+が半正定値</p>
+<p>(H をヘッセ行列と呼ぶ)</p>
+<h4 id="-">注意</h4>
+<p>定理3.2の不等式 $(*)$において  $0 &lt; \lambda &lt; 1$のとき
+統合成立の必要十分条件は $\bf{p} = \bf{q}$ である (狭義上凸性)</p>
+<h4 id="-">注意</h4>
+<p>定理3.2を繰り返し適用することにより次が得られる
+$$
+\bf{p}_1 , \bf{p}_2 ,　\dots , \bf{p}_n \in \Delta_{m} , 
+\lambda_1 , \dots, \lambda_n \geq 0,  \\
+\lambda_1 + \dots + \lambda_n = 1 
+\\
+\Rightarrow \\
+H(\lambda_1 \bf{p}_1 + \dots + \lambda_n \bf{p}_n) \geq \lambda_1H(\bf{p}_1) + \dots + \lambda_n H(\bf{p}_n)
+$$
+さらに $\lambda_1, \dots , \lambda_n &gt; 0$ のとき $\bf{p}_1 = \dots = \bf{p}_n$ である</p>
+<h4 id="-">注意</h4>
+<p>$\bf{p} = (p_1, \dots , p_m) \in \Delta_m$の成分を並び替えたものを
+$\bf{p}^{&#39;} = (p_1^{&#39;}, \dots , p_m^{&#39;}) \in \Delta_m$ とすると  </p>
+<p>$H(\bf{p}) = H(\bf{p}^{&#39;})$ (対称性)</p>
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></body></html>
