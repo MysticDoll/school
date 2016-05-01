@@ -1,73 +1,210 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <script src="data:application/x-javascript;base64,dmFyIGZpbGVyZWY9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0JykKZmlsZXJlZi5zZXRBdHRyaWJ1dGUoInR5cGUiLCJ0ZXh0L2phdmFzY3JpcHQiKQpmaWxlcmVmLnNldEF0dHJpYnV0ZSgic3JjIiwgImh0dHA6Ly9jZG4ubWF0aGpheC5vcmcvbWF0aGpheC9sYXRlc3QvTWF0aEpheC5qcz9jb25maWc9VGVYLUFNUy1NTUxfSFRNTG9yTU1MIikKZG9jdW1lbnQuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImhlYWQiKVswXS5hcHBlbmRDaGlsZChmaWxlcmVmKQo=" type="text/javascript"></script>
-</head>
-<body>
-<script>MathJax.Hub.Register.StartupHook(\"End\",function () {window.status = \"ready_to_print\";});</script>
-<h1 id="様々な情報量">様々な情報量</h1>
-<h2 id="エントロピー">エントロピー</h2>
+<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css"><style>h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+    text-decoration: none;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+    background-color: #f5f4ea;
+}
+code {
+    background-color: #f5f4ea;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #f5f4ea;
+    color:#454545;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style></head><body><h1 id="-">様々な情報量</h1>
+<h2 id="-">エントロピー</h2>
 <p>得た情報の量 = 減った不確かさの量</p>
-<h3 id="定義">定義</h3>
+<h3 id="-">定義</h3>
 <p>アルファベットx上に値をとる離散確率変数Xに対して</p>
-<p><span class="math display">\[
-H(X) = - \sum\_{x \in \chi} p\_{X} (\chi) \log p\_{X} (x)
-\]</span></p>
+<p>$$
+H(X) = - \sum_{x \in \chi} p_{X} (\chi) \log p_{X} (x)
+$$</p>
 <p>ただし</p>
-<p><span class="math display">\[
-p\_{X} (x) = P(X = x)
-\]</span></p>
+<p>$$
+p_{X} (x) = P(X = x)
+$$</p>
 <p>logの底は2</p>
-<h4 id="例">例</h4>
-<p><span class="math display">\[
+<h4 id="-">例</h4>
+<p>$$
 P(X = 0) = 1/4 \\
 P(X = 1) = 1/2 \\
 P(X = 2) = 1/4 \\
 H(X) = - \frac{1}{4} \log \frac{1}{4} - \frac{1}{2} \log \frac{1}{2} - \frac{1}{4} \log \frac{1}{4} \\
      = \frac{3}{2}
-\]</span></p>
-<h3 id="エントロピーの性質">エントロピーの性質</h3>
+$$</p>
+<h3 id="-">エントロピーの性質</h3>
 <ul>
 <li>非負性</li>
 </ul>
-<p><span class="math display">\[
+<p>$$
 H(X) \geq 0 \\
 ∵ \ - p \log p \geq 0 (0 \leq p \leq 1) \\
-\]</span></p>
+$$</p>
 <p>さらに</p>
-<p><span class="math display">\[
-H(X) = 0 \Leftrightarrow - p\_X (x) \log p\_X (x) = 0 \\
-         \Leftrightarrow すべての x \in \chi に対して p\_X (x) = 0 または p\_X (x) = 1 \\
-         \Leftrightarrow ある x \in \chi に対して p\_X (x) = 1
-\]</span></p>
-<h4 id="例-1">例</h4>
+<p>$$
+H(X) = 0 \Leftrightarrow - p_X (x) \log p_X (x) = 0 \\
+         \Leftrightarrow すべての x \in \chi に対して p_X (x) = 0 または p_X (x) = 1 \\
+         \Leftrightarrow ある x \in \chi に対して p_X (x) = 1
+$$</p>
+<h4 id="-">例</h4>
 <p>X が x 上の一様分布に従うとき</p>
-<p><span class="math display">\[
-H(X) = - \sum\_{x \in \chi} \frac{1}{|x|} \log \frac{1}{|x} \\
+<p>$$
+H(X) = - \sum_{x \in \chi} \frac{1}{|x|} \log \frac{1}{|x} \\
      = |x| \times \frac{1}{x} \log |x| \\
      = log |x|
-\]</span></p>
-<h4 id="例-2">例</h4>
-<p><span class="math display">\[
+$$</p>
+<h4 id="-">例</h4>
+<p>$$
 |x| = 2 のとき、例えば \\
 x = {0, 1} のとき \\
-p\_X(x) = \begin{cases}
+p_X(x) = \begin{cases}
   t &amp; x = 0 \\
   1 - t &amp; x = 1
 \end{cases}
 (0 \leq t \leq 1) \\
 のとき \\
 H(X) = - t \log t  - (1 - t) \log (1 - t) = h(t) とおく(2値エントロピー関数)
-\]</span></p>
-<h5 id="注">注</h5>
-<p><span class="math display">\[
-H(X) = \sum\_{x \in \chi} p\_{X} (x) ( - \log p\_{X} (x) )　\
-     = E [ - \log p\_{X} (X) ]
-\]</span></p>
-</body>
-</html>
+$$</p>
+<h5 id="-">注</h5>
+<p>$$
+H(X) = \sum_{x \in \chi} p_{X} (x) ( - \log p_{X} (x) )　\
+     = E [ - \log p_{X} (X) ]
+$$</p>
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></body></html>
