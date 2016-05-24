@@ -1,0 +1,202 @@
+<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css"><style>h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+    text-decoration: none;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+    background-color: #f5f4ea;
+}
+code {
+    background-color: #f5f4ea;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #f5f4ea;
+    color:#454545;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style></head><body><h1 id="-">情報源の符号化</h1>
+<h2 id="-">情報源,符号化</h2>
+<p>符号化 : データの形式を変換すること</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:left"></th>
+<th style="text-align:center">情報源符号化</th>
+<th style="text-align:left"></th>
+<th style="text-align:center">通信路符号化</th>
+<th style="text-align:left"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">情報源</td>
+<td style="text-align:left">-&gt;</td>
+<td style="text-align:center">情報源符号器</td>
+<td style="text-align:left">-&gt;</td>
+<td style="text-align:center">通信路符号器</td>
+<td style="text-align:left">-&gt;</td>
+<td style="text-align:center">通信路</td>
+</tr>
+<tr>
+<td style="text-align:center">復元情報</td>
+<td style="text-align:left">&lt;-</td>
+<td style="text-align:center">情報源復号器</td>
+<td style="text-align:left">&lt;-</td>
+<td style="text-align:center">通信路復号器</td>
+<td style="text-align:left">&lt;-</td>
+<td style="text-align:center">&lt;-</td>
+</tr>
+</tbody>
+</table>
+<p>情報源 : 添え字付きの確立変数 $X_{t}$ の集まりとして表される。<br>$t$は時刻(離散,連続)、$X_{t}$は時刻$t$に情報源が出力したデータ(離散,連続)。</p>
+<p>以下では時刻,データともに離散的である場合のみを考えることにする。</p>
+<p>このとき、情報源は離散確立変数の列<br>$X_1 , X_2 , X_3 , \cdots $ として表されることになる</p>
+<h2 id="-">定常無記憶情報源</h2>
+<p>情報源 $\bf{x} = X_1 , X_2 , X_3 , \cdots $ について($X_i \in \cal{X}$上の確立変数)  </p>
+<h3 id="-2-8">定義2.8</h3>
+<p>$\bf{X}$が定常 $\Leftrightarrow$<br>任意の $t \in \bf{N}, n \in \bf{N}, x_1 , x_2 , x_3 , \cdots , x_n \in \cal{X}$ に対して<br>$P(X_1 X_2 \cdots X_n = x_1 x_2 \cdots x_n) = P(X_{t+1} X_{t+2} \cdots X_{t+n} = x_1 x_2 \cdots x_n)$</p>
+<h3 id="-2-9">定義2.9</h3>
+<p>$\bf{X}$が無記憶 $\Leftrightarrow$<br>任意の $t \in \bf{N}$と$x_1 , x_2 , \cdots , x_n$ に対して<br>$P(X_1 X_2 \cdots X_n = x_1 x_2 \cdots x_n) = P(X_1 = x_1)P(X_2 = x_2) \cdots P(X_n = x_n)$</p>
+<p>以上から<br>$\bf{X}$が定常かつ無記憶のとき</p>
+<p>$$
+P(X_1 X_2 \cdots X_n = x_1 x_2 \cdots x_n) = P(X_1 = x_1)P(X_2 = x_2) \cdots P(X_n = x_) \\
+= p(x_1) p(x_2) \cdots p(x_n)
+$$</p>
+<p>ただし $p(x) = P(X_1 = x) (x \in \cal{X})$ つまり $X_1 ,X_2 , \cdots , X_n$ が $i.i.d.$ (独立で同一の分布に従う)</p>
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></body></html>
