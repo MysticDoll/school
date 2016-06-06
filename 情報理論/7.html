@@ -1,0 +1,221 @@
+<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css"><style>h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+    text-decoration: none;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+    background-color: #f5f4ea;
+}
+code {
+    background-color: #f5f4ea;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #f5f4ea;
+    color:#454545;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style></head><body><h1 id="-">情報源の符号化</h1>
+<h2 id="-">符号の種類</h2>
+<p>情報源アルファベットを $\cal{X}$<br>符号アルファベットを $\cal{A}$ とする。</p>
+<p>このとき、符号は次の4つに分類される</p>
+<h3 id="ff-">FF符号</h3>
+<p>$\Phi : \cal{X}^k \rightarrow \cal{A}^l$</p>
+<h3 id="fv-">FV符号</h3>
+<p>$\Phi : \cal{X}^k \rightarrow \cal{A}^+ (= \cal{A} \cup \cal{A}^2 \cup \cal{A}^3 \cup \cdots)$</p>
+<h3 id="vf-">VF符号</h3>
+<p>$\Phi : \cal{X}^+ \rightarrow \cal{A}^l$ (cf. 第6章)</p>
+<h3 id="vv-">VV符号</h3>
+<p>$\Phi : \cal{X}^+ \rightarrow \cal{A}^+$</p>
+<p>以下では FV符号 $\Phi : \cal{X} \rightarrow \cal{A}^+ $ について考えることにする</p>
+<h3 id="-4-1">例4.1</h3>
+<p>$ \cal{X} = \{1,2,3,4\}, \cal{A} = \{0,1\}, \Phi : \cal{X} \rightarrow \cal{A} $<br>$ \Phi (1) = 0 , \Phi (2) = 01 , \Phi (3) = 10 , \Phi (4) = 010 $</p>
+<h2 id="-">拡大符号と一意文節可能性</h2>
+<p>例4.1において<br>情報記号列 21 を符号化すると 01 0<br>となり、元の情報源符号列の区別できない</p>
+<p>FV符号 $ \Phi : \cal{X} \rightarrow \cal{A}^+ $ に対して、<br>その拡大符号 $ \Phi^+ : \cal{X}^+ \rightarrow \cal{A}^+ $ を<br>$ \Phi^+ (x_1 x_2 \cdots x_n) = \Phi (x_1) \Phi (x_2) \cdots \Phi (x_n) $ と定義する</p>
+<h3 id="-4-1-">例4.1(続き)</h3>
+<p>$ \Phi^+ (21) = \Phi (2) \Phi (1) = 010 $<br>$ \Phi^+ (13) = \Phi (1) \Phi (3) = 010 $</p>
+<p>また $ n \in N $ に対して
+$ \Phi^{(n)} : \cal{X}^n \rightarrow \cal{A}^+ $ を<br>$ \Phi^{(N)} (x_1) \cdots \Phi^+ (x_1 \cdots x_n) = \Phi (x_1) \cdots \Phi (x_n) $<br>と定義する</p>
+<h3 id="-">定義</h3>
+<p>FV符号 $ \Phi : \cal{X} \rightarrow \cal{A}^+ $ に対して<br>$ \Phi $ が一意文節可能 $ \Leftrightarrow $<br>$ \forall n \in N $ に対して<br>$ \Phi^{(n)} : \cal{X}^n \rightarrow \cal{X}^+ $ が単射</p>
+<h3 id="-4-2">例4.2</h3>
+<p>$ \cal{X} = \{1,2,3,4\}, \cal{A} = \{0,1\} $</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$x$</th>
+<th style="text-align:center">$\Phi_2 (x)$</th>
+<th style="text-align:center">$\Phi_3 (x)$</th>
+<th style="text-align:center">$\Phi_4 (x)$</th>
+<th style="text-align:center">$\Phi_5 (x)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">110</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">01</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">01</td>
+<td style="text-align:center">00</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">001</td>
+<td style="text-align:center">110</td>
+<td style="text-align:center">011</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">0001</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">11</td>
+</tr>
+</tbody>
+</table>
+<h1 id="-">語頭符号</h1>
+<h2 id="-">定義</h2>
+<p>FV符号 $ \Phi : \cal{X} \rightarrow \cal{A}^+ $ に対して<br>$ \Phi $ が語頭符号 $ \Leftrightarrow $ 全ての符号語が別の符号語を語頭に持たない</p>
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></body></html>
