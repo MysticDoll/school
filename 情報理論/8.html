@@ -160,5 +160,64 @@ sup {
 <h3 id="-">左部分木, 右部分木</h3>
 <p>2分木において,内節点から下に伸びる2本の枝に左右の区別をつけることがある(順序付き2分木)</p>
 <h3 id="-">トライ</h3>
+<p>符号アルファベット $ \cal{A} $ (ただし $|\cal{A}| = R $) に対して、書く枝に $ \cal{A} $ の元を対応付けたR進木を考える。<br>ただし、同じ内節点からその子に伸びる枝にはそれぞれ異なる記号を対応付ける。<br>このとき、ラベル付けられた木のことをトライという。</p>
+<h4 id="-">注</h4>
+<p>木を表すときは $ T $ などの英大文字を用いるが、トライについては $ \cal{T} $ など斜体で表すことにする</p>
+<p>トライにおいて、各節点$ v $に対して根から$ v $への経路上にある枝のラベルを順に並べてできる$ \cal{A}^{+} $の元$ w(v) $を割り当てることとする。</p>
+<h3 id="-">符号の木表現</h3>
+<h4 id="-">例</h4>
+<p>$ \cal{X} = { 1, 2, 3, 4 }, \cal{A} = { 0, 1 } $  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$x$</th>
+<th style="text-align:center">$\Phi (x) $</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">01</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">010</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-js">{
+  root: {
+    <span class="hljs-number">0</span>: {
+      <span class="hljs-keyword">node</span><span class="hljs-title">: 0</span>,
+      <span class="hljs-number">1</span>: {
+        <span class="hljs-keyword">node</span><span class="hljs-title">: 01</span>,
+        <span class="hljs-number">0</span>: {
+          <span class="hljs-keyword">node</span><span class="hljs-title">: 010</span>,
+        }
+      }
+    },
+    <span class="hljs-number">1</span>: {
+      <span class="hljs-keyword">node</span><span class="hljs-title">: 1</span>,
+      <span class="hljs-number">0</span>: {
+        <span class="hljs-keyword">node</span><span class="hljs-title">: 10</span>
+      }
+    }
+  }
+}
+</code></pre>
+<p>符号 $ \Phi : \cal{X} \rightarrow \cal{A}^{+} $ に対して<br>$ \Phi $の符号語全体を $ C_{\Phi} = { \Phi (x) | x \in \cal{X} } $ とするとき、<br>$ C_{\Phi} $の各元がある節点のラベルとなっているようなトライ$ \ cal{T} $を考えることができる(アルゴリズム5.1参照)</p>
+<h3 id="-5-1">定理5.1</h3>
+<p>符号$ \Phi $について<br>$ \Phi $が語頭符号 $ \Leftrightarrow $ $ \Phi $がある木表現において各符号語が葉に対応している</p>
+<h4 id="-">証明</h4>
+<p>$ \Rightarrow $ $ \Phi $の各符号語$ v $について、それを語頭とする記号列は$ v $の子孫である節点に対応しているので、<br>$ \Phi $が語頭符号であることから、$ \Phi $の木表現において $ v $の子孫を除くことができ、その結果$ v $は葉になる.<br>$ \Leftrightarrow $<br>$ v $を語頭とする記号列は根から$ v $への経路上の節点に対応しているが、
+仮定よりこのような内節点に符号語は対応していない</p>
 
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></body></html>
