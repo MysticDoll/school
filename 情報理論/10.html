@@ -1,0 +1,203 @@
+<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=yes'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/default.min.css"><style>h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+    text-decoration: none;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+    background-color: #f5f4ea;
+}
+code {
+    background-color: #f5f4ea;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #f5f4ea;
+    color:#454545;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style></head><body><h1 id="4-4-">4.4 平均符号語長</h1>
+<p>情報源 $ X = X_1,X_2 \cdots $ が $ x = {x_1 , x_2 , \cdots , x_m } $ の値を出力するとする<br>ここで $ p(x)  = P(X_k = x) (x \in \cal{X})a $ としておく</p>
+<p>このとき FV符号 $ \Phi : \cal{X} \rightarrow \cal{A}^+ $ に対して<br>$\bar{l} (\Phi, X) = \sum_{x \in \cal{X}} p(x) |\Phi (x)| $ を $ \Phi $ の平均符号語長という</p>
+<p>平均符号語長が最小の語頭符号を<strong>最適符号</strong>と呼ぶ</p>
+<h2 id="-">例</h2>
+<p>$ x = {1, 2 ,3 ,4}, \cal{A} = {0, 1} $</p>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th style="text-align:center">$p(x)$</th>
+<th style="text-align:center">$\Phi (x)$</th>
+<th style="text-align:center">$</th>
+<th>\Phi(x)</th>
+<th>$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:center">$\frac{1}{2}$</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:center">$\frac{1}{3}$</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:center">$\frac{1}{12}$</td>
+<td style="text-align:center">110</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:center">$\frac{1}{12}$</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">3</td>
+</tr>
+</tbody>
+</table>
+<p>$\bar{l} (\Phi , X) = \frac{1}{2} \times 1 + \frac{1}{3} \times 2 + \frac{1}{12} \times 3 = \frac{5}{3}$</p>
+<h1 id="-4-2">定理4.2</h1>
+<p>FV符号$\Phi : \cal{X} \rightarrow \cal{A}^+ $ がクラフトの不等式を満たすならば<br>$ \bar{l} (\Phi , X) \geq \frac{H(X)}{\log R} $</p>
+<h2 id="-">注</h2>
+<p>最適符号は語頭符号であるのでクラフトの不等式を満たすので、平均符号語長は $ \frac{H(X)}{\log R} $ 以上となる</p>
+<h1 id="5-2-">5.2 最適符号の平均符号語長</h1>
+<p>最適符号 $ \Phi^*$ に対して</p>
+<p>$ \frac{H(X)}{\log R} \leq \bar{l} (\Phi^* , X) &lt; \frac{H(X)}{\log R} + 1 $</p>
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}}); </script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script></body></html>
